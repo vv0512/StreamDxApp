@@ -1,0 +1,106 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:id="@+id/volumeGraph"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flowGraph"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/volumeGraph"
+        android:layout_marginTop="20dp">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maximum flow: --"
+        android:id="@+id/maximum_flow"
+        android:layout_below="@+id/flowGraph"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average flow: --"
+        android:id="@+id/average_flow"
+        android:layout_alignTop = "@id/maximum_flow"
+        android:layout_toRightOf = "@id/maximum_flow"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flow time: --"
+        android:id="@+id/flow_time"
+        android:layout_alignTop= "@id/maximum_flow"
+        android:layout_toRightOf="@id/average_flow"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voided volume: --"
+        android:id="@+id/void_volume"
+        android:layout_alignTop = "@id/maximum_flow"
+        android:layout_toRightOf = "@id/flow_time"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Norm voltage: --"
+        android:id="@+id/norm_voltage"
+        android:layout_alignTop = "@id/maximum_flow"
+        android:layout_toRightOf = "@id/void_volume"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="File Name: "
+        android:id="@+id/filename"
+        android:layout_alignTop = "@id/maximum_flow"
+        android:layout_toRightOf = "@id/norm_voltage"
+        android:layout_marginLeft="20dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal: --"
+        android:id="@+id/voltage_data"
+        android:layout_below="@+id/maximum_flow"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Packet data: --"
+        android:id="@+id/packet_data"
+        android:layout_alignTop = "@id/voltage_data"
+        android:layout_toRightOf = "@id/voltage_data"
+        android:layout_marginLeft="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/filenameEditText"
+        android:layout_alignTop="@+id/filename"
+        android:layout_toEndOf="@+id/filename"
+        android:layout_marginStart="124dp" />
+
+
+</RelativeLayout>
