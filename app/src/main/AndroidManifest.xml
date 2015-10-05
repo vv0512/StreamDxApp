@@ -9,6 +9,7 @@ package="com.streamdx.sdx.app" >
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 <application
     android:allowBackup="true"
@@ -29,6 +30,7 @@ package="com.streamdx.sdx.app" >
     <activity
         android:name="com.streamdx.sdxcal.app.RealTimeGraphing">
     </activity>
+    <activity android:name="com.streamdx.sdxcal.app.UploadToServer" android:noHistory="true"/>
     <service android:name="com.streamdx.sdxcal.app.BluetoothLeService" android:enabled="true"/>
 </application>
 

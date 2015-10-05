@@ -35,6 +35,7 @@ public class MainActivity extends ListActivity {
     private static final int REQUEST_ENABLE_BT = 1;
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
+    private Context mContext = null;
 
     //Checks for bluetooth availability on creation of this activity
     @Override
@@ -42,6 +43,7 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
+        mContext = this.getApplicationContext();
 
         // Use this check to determine whether BLE is supported on the device.  Then you can
         // selectively disable BLE-related features.
@@ -73,10 +75,12 @@ public class MainActivity extends ListActivity {
         if (!mScanning) {
             menu.findItem(R.id.menu_stop).setVisible(false);
             menu.findItem(R.id.menu_scan).setVisible(true);
+            menu.findItem(R.id.menu_upload).setVisible(true);
             menu.findItem(R.id.menu_refresh).setActionView(null);
         } else {
             menu.findItem(R.id.menu_stop).setVisible(true);
             menu.findItem(R.id.menu_scan).setVisible(false);
+            menu.findItem(R.id.menu_upload).setVisible(false);
             menu.findItem(R.id.menu_refresh).setActionView(
                     R.layout.actionbar_indeterminate_progress);
         }
@@ -94,6 +98,13 @@ public class MainActivity extends ListActivity {
                 break;
             case R.id.menu_stop:
                 scanLeDevice(false);
+                break;
+            case R.id.menu_upload:
+                Bundle b = new Bundle(1);
+                b.putString("DATA", "0.2,0.3,0.4,0.5,0.7");
+                Intent upload = new Intent(mContext, UploadToServer.class);
+                upload.putExtras(b);
+                startActivity(upload);
                 break;
         }
         return true;

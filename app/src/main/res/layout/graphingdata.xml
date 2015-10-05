@@ -102,5 +102,13 @@
         android:layout_toEndOf="@+id/filename"
         android:layout_marginStart="124dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_upload"
+        android:id="@+id/uploadButton"
+        android:layout_alignBottom="@+id/void_volume"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

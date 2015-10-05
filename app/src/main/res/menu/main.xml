@@ -11,4 +11,8 @@
         android:title="@string/menu_stop"
         android:orderInCategory="101"
         android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/menu_upload"
+        android:title="@string/menu_upload"
+        android:orderInCategory="102"
+        android:showAsAction="ifRoom|withText"/>
 </menu>

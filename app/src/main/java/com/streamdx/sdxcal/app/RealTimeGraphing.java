@@ -19,6 +19,8 @@ import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
@@ -98,7 +100,7 @@ public class RealTimeGraphing extends Activity {
         private GraphViewSeries totalSeries;
 
         private double graph2LastXValue = 5d;
-
+        private Context mContext = null;
 
         // Code to manage Service lifecycle.
         private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -252,6 +254,19 @@ public class RealTimeGraphing extends Activity {
             LinearLayout flow_layout = (LinearLayout) findViewById(R.id.flowGraph);
             flow_layout.addView(flowView);
 
+            mContext = this.getApplicationContext();
+            Button btn = (Button) findViewById(R.id.uploadButton);
+            btn.setOnClickListener(new Button.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Bundle b = new Bundle(1);
+                    b.putString("DATA", datastring);
+                    Intent upload = new Intent(mContext, UploadToServer.class);
+                    upload.putExtras(b);
+                    startActivity(upload);
+                }
+            });
         }
 
         public double c;
